@@ -1,0 +1,36 @@
+<html ng-app="aplicacionDiscos">
+    <head>
+        <title>titulo</title><!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+        <script>
+            var app = angular.module('aplicacionDiscos',[]);
+
+            app.controller('discosControlador', function($scope){
+            //$scope.discos = ['Black Star','otro disco','tercer disco']
+            $scope.discos = [{nombre: 'Black Star', costo:'$200', fecha:'2007', img:'img/1.png', vendido:true},
+                            {nombre:'otro disco', costo:'$120',fecha:'2015', img:'img/2.png', vendido:true},
+                            {nombre:'tercer disco', costo:'$520',fecha:'2017', img:'img/3.png', vendido:false}
+                            ];
+            })
+
+        </script>
+
+        </head>
+    <body class="container" ng-controller="discosControlador">
+        <div class="panel-group">
+            <div class="panel panel-primary" ng-repeat="disco in discos">
+                <div class="panel-heading">
+                    {{disco.nombre}} 
+                </div>
+                <div class="panel-body">
+                    {{disco.costo}} - {{disco.fecha}} 
+                    <div ng-show="{{disco.vendido}}"><img class="responsive thumbnail" ng-src="{{disco.img}}"></img></div>
+                </div>
+            </div>
+        </div>
+    </body>
+   
+   
+</html>
